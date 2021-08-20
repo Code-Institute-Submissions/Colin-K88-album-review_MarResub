@@ -103,8 +103,22 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/add_album")
+@app.route("/add_album", methods=["GET", "POST"])
 def add_album():
+    if request.method == "POST":
+        albums = {
+            "genre": request.form.get("genre"),
+            "album_name": request.form.get("album_name"),
+            "artist": request.form.get("artist"),
+            "release_year": request.form.get("release_year"),
+            "rating": request.form.get("rating"),
+            "album_review": request.form.get("album_review"),
+            "created_by": session["user"]
+        }
+        mongo.db.albums.insert_one(albums)
+        flash("Album Successfully Added")
+        return redirect(url_for("albums"))
+
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_album.html", categories=categories)
 

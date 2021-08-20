@@ -2,19 +2,24 @@
 {% block content %}
     <p>Albums Page</p>
 
-    {% for albums in albums %}
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="{{ albums.image_url }}" alt="Card image cap">
-        <div class="card-body">
-          <p class="card-text">Album Name : {{ albums.album_name }}<br>
-            Artist : {{ albums.artist }}<br>
-            Genre : {{ albums.genre }}<br>
-            Release Year : {{ albums.release_year }}<br>
-            Rating : {{ albums.rating }}<br>
-            Review : {{ albums.album_review }}<br>
-        {% endfor %}</p></p>
-        </div>
-      </div>
-
-
-{% endblock %}
+    <div class="container">
+      <div class="row">
+        {% for albums in albums %}
+          <div class="col-lg-3 col-md-4 col-sm-6 mb-4" style="margin-right: 150px;">
+          <div class="card h-100 " style="width: 300px;">
+              <img class="card-img-top" src="{{ albums.image_url }}" alt=""></a>
+              <div class="card-body">
+              <h4 class="card-title">
+                Album Name : {{ albums.album_name }}
+              </h4>
+              <p class="card-text">  Artist : {{ albums.artist }}<br>
+                Genre : {{ albums.genre }}<br>
+                Release Year : {{ albums.release_year }}<br>
+                Rating : {{ albums.rating }}<br>
+                Review : {{ albums.album_review }}<br>
+              </p>
+              </div>
+          </div>
+  </div>
+  {% endfor %}
+  {% endblock %} 
