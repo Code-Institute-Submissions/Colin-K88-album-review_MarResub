@@ -123,6 +123,14 @@ def add_album():
     return render_template("add_album.html", categories=categories)
 
 
+@app.route("/edit_album/<albums_id>", methods=["GET", "POST"])
+def edit_album(albums_id):
+    albums = mongo.db.tasks.find_one({"_id": ObjectId(albums_id)})
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("edit_album.html",
+                           albums=albums, categories=categories)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
