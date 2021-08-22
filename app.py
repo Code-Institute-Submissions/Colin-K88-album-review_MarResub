@@ -134,12 +134,19 @@ def edit_album(albums_id):
             "created_by": session["user"]
         }
         mongo.db.albums.update({"_id": ObjectId(albums_id)}, submit)
-        flash("Task Successfully Updated")
+        flash("Album Successfully Updated")
 
     albums = mongo.db.albums.find_one({"_id": ObjectId(albums_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("edit_album.html",
                            albums=albums, categories=categories)
+
+
+@app.route("/delete_album/<albums_id>")
+def delete_album(albums_id):
+    mongo.db.albums.remove({"_id": ObjectId(albums_id)})
+    flash("Album Successfully Deleted")
+    return redirect(url_for("albums"))
 
 
 if __name__ == "__main__":
