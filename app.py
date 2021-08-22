@@ -136,7 +136,7 @@ def edit_album(albums_id):
         mongo.db.albums.update({"_id": ObjectId(albums_id)}, submit)
         flash("Task Successfully Updated")
 
-    albums = mongo.db.tasks.find_one({"_id": ObjectId(albums_id)})
+    albums = mongo.db.albums.find_one({"_id": ObjectId(albums_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("edit_album.html",
                            albums=albums, categories=categories)
