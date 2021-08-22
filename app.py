@@ -111,7 +111,6 @@ def add_album():
             "album_name": request.form.get("album_name"),
             "artist": request.form.get("artist"),
             "release_year": request.form.get("release_year"),
-            "rating": request.form.get("rating"),
             "album_review": request.form.get("album_review"),
             "created_by": session["user"]
         }
@@ -125,6 +124,18 @@ def add_album():
 
 @app.route("/edit_album/<albums_id>", methods=["GET", "POST"])
 def edit_album(albums_id):
+    if request.method == "POST":
+        submit = {
+            "genre": request.form.get("genre"),
+            "album_name": request.form.get("album_name"),
+            "artist": request.form.get("artist"),
+            "release_year": request.form.get("release_year"),
+            "album_review": request.form.get("album_review"),
+            "created_by": session["user"]
+        }
+        mongo.db.albums.update({"_id": ObjectId(albums_id)}, submit)
+        flash("Task Successfully Updated")
+
     albums = mongo.db.tasks.find_one({"_id": ObjectId(albums_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("edit_album.html",
