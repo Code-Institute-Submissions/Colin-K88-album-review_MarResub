@@ -1,8 +1,6 @@
 # Colin Keenaghan - Milestone Project 3
 ## ALbum Review Club
 
-[Visit my live website here!](https://read-it-ms3.herokuapp.com/)
-
 ![Site preview](static/images/readme/preview.jpg)
 
 # Table Of Contents
@@ -13,7 +11,6 @@
     - [User Stories](#user-stories)
 3. [Design](#design)
     - [Wireframes](#wireframes)
-    - [Typography](#typography)
     - [Colours](#colours)
     - [Database](#database)
 4. [Features](#features)
@@ -55,11 +52,21 @@ All users of this site will be looking for similar things, outlined below;
 # Design
 
 ## Wireframes
+* Home Page: Desktop
+![Alt text](static/img/Home-wireframe.png)
 
-To create the wireframes, I used Balsamiq. 
+* Add Album: Desktop
+![Alt text](static/img/Add-Album-Wireframe.png)
 
--	[Mobile](static/images/wireframes/mobilewf.pdf)
--	[Desktop/Laptop](static/images/wireframes/desktopwf.pdf)
+* Register: Desktop
+![Alt text](static/img/register-wireframe.png)
+
+* Login: Desktop
+![Alt text](static/img/Login-wireframe.png)
+
+* Profile: Desktop
+![Alt text](static/img/Profile-wireframe.png)
+
 
 ## Colours
 The only real additional color used was teal to make buttons and headings stand out and more appealing.
@@ -178,6 +185,54 @@ MaterializeCSS - https://materializecss.com/
 * Profile: Desktop
 ![Alt text](static/img/Profile.png)
 
+# Deployment
+
+To run this project, you have to install:
+- [Python3](): to run the app
+- [PIP](): to install all app requirements
+- Any [IDE]() (e.g. [Visual Studio Code]()) or if you want to work virtually e.g. [Gitpod]()
+- [GIT](): for cloning and version control
+- [MongoDB](): to use as a database on MongoDB Atlas.
+
+## [Local deployment](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
+1. Go to repository
+2. Click on the button "code"
+3. Select the "HTTPS" option.
+4. Copy the URL presented
+5. Open your Terminal
+6. Create a directory for storing this repository
+7. Type `git clone https://github.com/Colin-K88/album-review`
+8. Press enter to create local clone repository
+
+## Heroku Deployment
+1. For Heroku to know which required dependencies to install, first create a requirements.txt file by running the following command in the CLI:
+```
+pip3 freeze --local > requirements.txt
+``` 
+2. Create a Procfile file with this command:
+```
+echo web: python run.py > Procfile
+```
+3. Sign up and log in to [Heroku](https://www.heroku.com/).
+4. Create a new app by clicking on the button "New".
+5. Give your app a name, select your region and click "Create app".
+6. Navigate to the "Deploy" tab and select "Github" as a deployment method.
+7. Search for your repository name and connect.
+8. Now open the "Settings" tab and click on "Reveal Config Vars".
+9. Add your configuration variables:
+    - **IP** : `0.0.0.0`
+    - **PORT** : `5000`
+    - **SECRET_KEY** : `<secret_key>`
+    - **MONGO_URI** : `mongodb+srv://<username>:<password>@myfirstcluster.iqdue.mongodb.net/<db_name>?retryWrites=true&w=majority`
+    - **MONGO_DBNAME** : `<db_name>`
+10. Navigate to the Tab "Deploy" and enable "Automatic Deploys".
+11. Everytime you push now to your Github repository the changes will be automatically deployed in Heroku.
+
+## Images
+#### Home page
+* Hero Image:(https://www.pexels.com/photo/black-audio-tapes-in-close-up-view-2718645/)
+* First home page Image:(https://www.pexels.com/photo/elvis-presley-digital-wallpaper-114820/)
+* Second home page Image:(https://www.pexels.com/photo/black-lx90-cassette-tape-1228497/)
 
 
 [Back to contents](#table-of-contents)
