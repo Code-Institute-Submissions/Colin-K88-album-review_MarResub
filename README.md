@@ -1,8 +1,6 @@
 # Colin Keenaghan - Milestone Project 3
 ## ALbum Review Club
 
-![Site preview](static/images/readme/preview.jpg)
-
 # Table Of Contents
 
 1. [Overview](#overview)
@@ -15,7 +13,6 @@
     - [Database](#database)
 4. [Features](#features)
     - [Current Features](#current-features)
-    - [Future Features](#future-features)
 5. [Technologies Used](#technologies-used)
     - [Languages](#languages)
     - [Database](#database)
