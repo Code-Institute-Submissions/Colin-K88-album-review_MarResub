@@ -182,6 +182,23 @@ MaterializeCSS - https://materializecss.com/
 * Profile: Desktop
 ![Alt text](static/img/Profile.png)
 
+* Html: Validaqtor
+![Alt text](static/img/Html.Test.png)
+
+### CSS Testing
+* Css Validator
+![Alt text](static/img/CSS.Test.png)
+
+### JS Testing
+* JS Validator
+![Alt text](static/img/JS.Test.png)
+
+### Python Testing
+* JS Validator
+![Alt text](static/img/Python.Test.png)
+
+
+
 # Deployment
 
 To run this project, you have to install:
